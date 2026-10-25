@@ -1,0 +1,238 @@
+.section {
+  background: #FFFFFF;
+  padding: 80px 0;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ─── Trust Score Bar ──────────────────────────────────────────────────── */
+.trustScoreBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #FAF8F5;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px 32px;
+  margin-bottom: 48px;
+  box-shadow: var(--shadow-sm);
+}
+
+.scoreItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.bigScore {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.starsRow {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 4px;
+}
+
+.scoreSubtitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.scoreLabel {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.scoreDivider {
+  width: 1px;
+  height: 48px;
+  background: var(--border-light);
+}
+
+/* ─── Spotlight Card ───────────────────────────────────────────────────── */
+.spotlightCard {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+}
+
+.spotlightImageCol {
+  position: relative;
+  background: #111827;
+  min-height: 420px;
+}
+
+.spotlightImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.verifiedTag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #15803D;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  backdrop-filter: blur(4px);
+}
+
+.verifiedIcon {
+  color: #16A34A;
+}
+
+/* Content */
+.spotlightContentCol {
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ratingStars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.quoteIcon {
+  color: #FED7AA;
+  margin-bottom: 12px;
+}
+
+.reviewText {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.authorMeta {
+  margin-bottom: 24px;
+}
+
+.customerName {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.locIcon {
+  color: var(--primary);
+}
+
+.productBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FAF8F5;
+  border: 1px solid var(--border-light);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+.woodBadge {
+  color: var(--primary-dark);
+}
+
+/* Slider Controls */
+.sliderControls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+.controlBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: #FAF8F5;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.controlBtn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #FFFFFF;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: #D1D5DB;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dotActive {
+  background: var(--primary);
+  width: 20px;
+}
+
+@media (max-width: 960px) {
+  .spotlightCard {
+    grid-template-columns: 1fr;
+  }
+  .spotlightContentCol {
+    padding: 32px 24px;
+  }
+  .trustScoreBar {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .scoreDivider {
+    display: none;
+  }
+}

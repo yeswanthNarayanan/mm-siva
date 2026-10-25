@@ -1,0 +1,327 @@
+/* ─── Hero Section ──────────────────────────────────────────────────────── */
+.heroSection {
+  position: relative;
+  background: #111827;
+  overflow: hidden;
+}
+
+.viewport {
+  position: relative;
+  height: 580px;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Background Slides */
+.slideBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.slideActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Editorial Gradient & Vignette Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(17, 24, 39, 0.88) 0%, 
+    rgba(17, 24, 39, 0.72) 45%, 
+    rgba(17, 24, 39, 0.35) 75%, 
+    rgba(17, 24, 39, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+/* Slide Content */
+.slideContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.slideContent {
+  max-width: 680px;
+  color: #FFFFFF;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.editorialBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(222, 91, 23, 0.2);
+  border: 1px solid rgba(222, 91, 23, 0.6);
+  color: #FDBA74;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.metaBadge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  color: #F3F4F6;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+}
+
+.sparkleIcon {
+  color: #FB923C;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.highlightText {
+  color: #FB923C;
+  font-style: italic;
+  font-weight: 700;
+  position: relative;
+}
+
+.subHeading {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #E5E7EB;
+  margin-bottom: 20px;
+  max-width: 580px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.pricePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: #FEF3C7;
+  margin-bottom: 26px;
+  backdrop-filter: blur(8px);
+}
+
+.priceDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22C55E;
+}
+
+.emiText {
+  color: #9CA3AF;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Nav Arrows */
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  z-index: 15;
+}
+
+.navArrow:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.prevArrow {
+  left: 24px;
+}
+
+.nextArrow {
+  right: 24px;
+}
+
+/* Dots */
+.dotsWrap {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 15;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dotActive {
+  width: 26px;
+  background: var(--primary);
+}
+
+/* ─── Wooden Street Grade Value Pillars Strip ───────────────────────────── */
+.pillarsStrip {
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.pillarsInner {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 22px 0;
+}
+
+.pillarItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+}
+
+.pillarItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: var(--border-light);
+}
+
+.pillarIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pillarItem:hover .pillarIconWrap {
+  transform: scale(1.08);
+  background: #FDE8D7;
+}
+
+.pillarText {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillarTitle {
+  font-family: var(--font-primary);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+
+.pillarDesc {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ─── Responsiveness ────────────────────────────────────────────────────── */
+@media (max-width: 1150px) {
+  .pillarsInner {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .pillarItem:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .viewport {
+    height: 520px;
+  }
+  .heading {
+    font-size: 32px;
+  }
+  .subHeading {
+    font-size: 14px;
+  }
+  .prevArrow, .nextArrow {
+    display: none;
+  }
+  .pillarsInner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pillarsInner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

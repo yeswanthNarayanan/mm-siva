@@ -1,0 +1,319 @@
+.section {
+  background: var(--bg-page);
+  padding: 80px 0;
+}
+
+/* Room Tab Selectors */
+.roomTabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.roomTab {
+  padding: 10px 24px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-full);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.roomTab:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.roomTabActive {
+  background: var(--text-primary) !important;
+  color: #FFFFFF !important;
+  border-color: var(--text-primary) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Stage Wrap ───────────────────────────────────────────────────────── */
+.stageWrap {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  background: #111827;
+  overflow: hidden;
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
+/* ─── Hotspot Pins ─────────────────────────────────────────────────────── */
+.pinWrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.pinButton {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: #FFFFFF;
+  border: 2.5px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.pinButton:hover, .pinButtonActive {
+  transform: scale(1.18);
+  background: var(--primary-hover);
+}
+
+.pinIcon {
+  transition: transform 0.2s ease;
+}
+.pinIconOpen {
+  transform: rotate(45deg);
+}
+
+.pulseRing {
+  position: absolute;
+  inset: -6px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--primary);
+  animation: pulsePin 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes pulsePin {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Tooltip Card */
+.hotspotTooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-light);
+  z-index: 20;
+  animation: tooltipFade 0.2s ease;
+}
+
+.hotspotTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #FFFFFF;
+}
+
+@keyframes tooltipFade {
+  from { opacity: 0; transform: translate(-50%, 6px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.tooltipTag {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tooltipTitle {
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 3px 0 6px;
+  line-height: 1.25;
+}
+
+.tooltipPriceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #F3F4F6;
+  padding-top: 6px;
+}
+
+.tooltipPrice {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.tooltipLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+.tooltipLink:hover {
+  text-decoration: underline;
+}
+
+/* ─── Stage Sidebar ────────────────────────────────────────────────────── */
+.stageSidebar {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+}
+
+.sidebarBadge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.sidebarTitle {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.sidebarTagline {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+}
+
+.sidebarDesc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.itemsSummary {
+  background: #FAF8F5;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin-bottom: 24px;
+}
+
+.itemsHeading {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summaryItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease;
+}
+.summaryItem:hover {
+  background: #F3ECE2;
+}
+
+.summaryLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkIcon {
+  color: var(--success);
+}
+
+.summaryName {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.summaryPrice {
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.sidebarCtaWrap {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.consultantSub {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ─── Responsiveness ────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .stageWrap {
+    grid-template-columns: 1fr;
+  }
+  .imageContainer {
+    min-height: 380px;
+  }
+}

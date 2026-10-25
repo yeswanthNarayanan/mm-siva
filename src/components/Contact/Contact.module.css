@@ -1,0 +1,232 @@
+.section {
+  background: #FFFFFF;
+  padding: 80px 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+/* ─── Left Column: Direct Contacts ─────────────────────────────────────── */
+.contactCard {
+  background: #FAF8F5;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.contactHead {
+  margin-bottom: 24px;
+}
+
+.headTag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.contactTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.channelsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.channelItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.channelItem:hover {
+  transform: translateX(4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.channelIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+.waBg { background: #22C55E; }
+.phoneBg { background: var(--text-primary); }
+.emailBg { background: var(--primary); }
+
+.channelText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.channelLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.channelValue {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.channelSub {
+  font-size: 11px;
+  color: #9CA3AF;
+}
+
+.channelArrow {
+  color: #9CA3AF;
+  transition: transform 0.15s ease;
+}
+.channelItem:hover .channelArrow {
+  color: var(--primary);
+  transform: translateX(3px);
+}
+
+.addressBox {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+}
+
+.addrHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.addrIcon {
+  color: var(--primary);
+}
+
+.addrText {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.addrTiming {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #6B7280;
+  font-weight: 500;
+}
+
+/* ─── Right Column: Form ────────────────────────────────────────────────── */
+.formCard {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-lg);
+}
+
+.formHeader {
+  margin-bottom: 24px;
+}
+
+.formTitle {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.formSub {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formRow {
+  display: flex;
+  gap: 16px;
+}
+
+.formFooterDisclaimer {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Success state */
+.successState {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.successIcon {
+  color: var(--success);
+  margin-bottom: 16px;
+}
+
+.successTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.successDesc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto 24px;
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .formRow {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,181 @@
+.section {
+  background: var(--bg-page);
+  padding: 72px 0 60px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #FED7AA;
+  box-shadow: 0 16px 32px -4px rgba(45, 30, 15, 0.12);
+}
+
+.imageWrap {
+  width: 100%;
+  aspect-ratio: 1.15;
+  position: relative;
+  overflow: hidden;
+  background: #F8F6F2;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .image {
+  transform: scale(1.08);
+}
+
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.card:hover .gradientOverlay {
+  opacity: 0.8;
+}
+
+.tagBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--primary);
+  color: #FFFFFF;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(222, 91, 23, 0.3);
+}
+
+.discountBadge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: #FFFFFF;
+  color: var(--success);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.hoverAction {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+.card:hover .hoverAction {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cardInfo {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #FFFFFF;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.catName {
+  font-family: var(--font-primary);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  transition: color 0.15s ease;
+}
+.card:hover .catName {
+  color: var(--primary);
+}
+
+.priceTag {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.catSubtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ─── Responsiveness ────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .cardInfo {
+    padding: 12px;
+  }
+  .catName {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}

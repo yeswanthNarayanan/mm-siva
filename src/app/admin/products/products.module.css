@@ -1,0 +1,94 @@
+.page { display: flex; width: 100%; }
+.main { flex: 1; padding: 32px; overflow-x: hidden; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.loading, .empty {
+  text-align: center;
+  padding: 60px;
+  color: var(--text-muted);
+  background: white;
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-9);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-9);
+}
+
+.card {
+  background: white;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1.5px solid transparent;
+  transition: var(--transition-base);
+}
+.card:hover { border-color: var(--border); box-shadow: var(--shadow-md); }
+
+.thumb {
+  position: relative;
+  aspect-ratio: 16/10;
+  background: var(--color-14);
+}
+
+.thumbImg { width: 100%; height: 100%; object-fit: cover; }
+
+.noThumb {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  background: linear-gradient(135deg, #FFF3EB, #F5F5F5);
+}
+
+.activeBadge { position: absolute; top: 10px; left: 10px; }
+.featuredBadge { position: absolute; top: 10px; right: 10px; }
+
+.info { padding: var(--space-9) var(--space-10); }
+
+.category {
+  font-size: var(--text-xs);
+  color: var(--primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.name {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.meta { font-size: var(--text-sm); color: var(--text-muted); }
+.imgCount { font-size: var(--text-xs); color: var(--text-muted); margin-top: 4px; }
+
+.actions {
+  display: flex;
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-10) var(--space-9);
+  border-top: 1px solid var(--border-light);
+}

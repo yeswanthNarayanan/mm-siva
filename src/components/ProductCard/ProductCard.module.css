@@ -1,0 +1,437 @@
+.card {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #E2D7CC;
+  box-shadow: 0 16px 36px -4px rgba(45, 30, 15, 0.12);
+}
+
+/* ─── Image Wrap ───────────────────────────────────────────────────────── */
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.25;
+  background: #FBF9F7;
+  overflow: hidden;
+  display: block;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .img {
+  transform: scale(1.06);
+}
+
+.noImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+  background: #F3F4F6;
+}
+.noImage span {
+  font-size: 36px;
+}
+
+/* Badges */
+.badgeTopLeft {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 3;
+}
+
+.badgeBestseller {
+  background: var(--primary);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(222, 91, 23, 0.3);
+}
+
+.badgeMaterial {
+  background: rgba(17, 24, 39, 0.85);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+  backdrop-filter: blur(4px);
+}
+
+.discountBadge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: #15803D;
+  color: #FFFFFF;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  z-index: 3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Wishlist Button */
+.wishlistBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease;
+}
+.wishlistBtn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.wishlistActive {
+  background: #FEE2E2;
+  border-color: #FCA5A5;
+}
+
+/* Quick View Button */
+.quickViewBtn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 11px;
+  border-radius: var(--radius-full);
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.card:hover .quickViewBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+.quickViewBtn:hover {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+}
+
+/* Image Nav Arrows */
+.imgArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.card:hover .imgArrow {
+  opacity: 1;
+}
+.imgArrowLeft { left: 8px; }
+.imgArrowRight { right: 8px; }
+
+.imgDots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  z-index: 3;
+}
+
+.imgDot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.imgDotActive {
+  background: var(--primary);
+  width: 14px;
+}
+
+/* ─── Card Body ────────────────────────────────────────────────────────── */
+.body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Rating Row */
+.ratingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.starsWrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #FEF3C7;
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+}
+
+.starIcon {
+  color: #F59E0B;
+}
+
+.ratingVal {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #92400E;
+}
+
+.ratingCount {
+  font-size: 11px;
+  color: #B45309;
+}
+
+.inStockTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #16A34A;
+}
+
+.stockIcon {
+  color: #16A34A;
+}
+
+/* Product Title */
+.name {
+  font-family: var(--font-primary);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 38px;
+}
+
+/* Finish Swatches */
+.swatchSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.swatchLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.swatchList {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swatchDot {
+  width: 17px;
+  height: 17px;
+  border-radius: var(--radius-full);
+  border: 2px solid #FFFFFF;
+  outline: 1px solid #D1D5DB;
+  cursor: pointer;
+  transition: transform 0.15s ease, outline-color 0.15s ease;
+  padding: 0;
+}
+.swatchDot:hover {
+  transform: scale(1.15);
+}
+.swatchActive {
+  outline: 2px solid var(--primary);
+  transform: scale(1.15);
+}
+
+.selectedFinishName {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Dimensions Row */
+.dimensionsRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.dimIcon {
+  color: #9CA3AF;
+  flex-shrink: 0;
+}
+
+/* Price Row */
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  margin-top: auto;
+}
+
+.priceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.offerPrice {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  letter-spacing: -0.01em;
+}
+
+.mrpPrice {
+  font-size: 13px;
+  color: #9CA3AF;
+  text-decoration: line-through;
+}
+
+.emiPill {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6B7280;
+  background: #F3F4F6;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+}
+
+/* Delivery Badge */
+.deliveryBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #15803D;
+  background: #F0FDF4;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+}
+
+.truckIcon {
+  color: #16A34A;
+  flex-shrink: 0;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.enquireBtn {
+  flex: 1;
+  padding: 10px 0;
+  background: var(--primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(222, 91, 23, 0.2);
+}
+.enquireBtn:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(222, 91, 23, 0.3);
+  transform: translateY(-1px);
+}
+
+.whatsappBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: #22C55E;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.25);
+}
+.whatsappBtn:hover {
+  background: #16A34A;
+  transform: translateY(-1px) scale(1.05);
+}
