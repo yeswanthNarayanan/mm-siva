@@ -20,7 +20,7 @@
 .imageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.25;
+  aspect-ratio: 16 / 11;
   background: #FBF9F7;
   overflow: hidden;
   display: block;
@@ -56,57 +56,57 @@
 /* Badges */
 .badgeTopLeft {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 12px;
+  left: 12px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   z-index: 3;
 }
 
 .badgeBestseller {
   background: var(--primary);
   color: #FFFFFF;
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: var(--radius-xs);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  box-shadow: 0 2px 6px rgba(222, 91, 23, 0.3);
+  box-shadow: 0 2px 8px rgba(222, 91, 23, 0.35);
 }
 
 .badgeMaterial {
-  background: rgba(17, 24, 39, 0.85);
+  background: rgba(17, 24, 39, 0.88);
   color: #FFFFFF;
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 600;
-  padding: 2px 7px;
+  padding: 3px 8px;
   border-radius: var(--radius-xs);
   backdrop-filter: blur(4px);
 }
 
 .discountBadge {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 12px;
+  left: 12px;
   background: #15803D;
   color: #FFFFFF;
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 700;
-  padding: 2px 8px;
+  padding: 3px 9px;
   border-radius: var(--radius-xs);
   z-index: 3;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* Wishlist Button */
 .wishlistBtn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 34px;
-  height: 34px;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
   border-radius: var(--radius-full);
   background: #FFFFFF;
   border: 1px solid var(--border-light);
@@ -115,12 +115,12 @@
   justify-content: center;
   cursor: pointer;
   z-index: 4;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease;
 }
 .wishlistBtn:hover {
   transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
 }
 .wishlistActive {
   background: #FEE2E2;
@@ -209,7 +209,7 @@
 
 /* ─── Card Body ────────────────────────────────────────────────────────── */
 .body {
-  padding: 16px 18px 18px;
+  padding: clamp(16px, 1.8vw, 22px);
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -220,7 +220,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .starsWrap {
@@ -228,7 +228,7 @@
   align-items: center;
   gap: 4px;
   background: #FEF3C7;
-  padding: 2px 7px;
+  padding: 3px 8px;
   border-radius: var(--radius-xs);
 }
 
@@ -237,13 +237,13 @@
 }
 
 .ratingVal {
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 700;
   color: #92400E;
 }
 
 .ratingCount {
-  font-size: 11px;
+  font-size: 11.5px;
   color: #B45309;
 }
 
@@ -251,7 +251,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
   color: #16A34A;
 }
@@ -263,16 +263,16 @@
 /* Product Title */
 .name {
   font-family: var(--font-primary);
-  font-size: 14.5px;
+  font-size: clamp(15.5px, 1.15vw, 17.5px);
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.35;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 38px;
+  min-height: 42px;
 }
 
 /* Finish Swatches */
@@ -280,11 +280,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .swatchLabel {
-  font-size: 11px;
+  font-size: 11.5px;
   color: var(--text-muted);
   font-weight: 600;
 }
@@ -292,29 +292,29 @@
 .swatchList {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 
 .swatchDot {
-  width: 17px;
-  height: 17px;
+  width: 20px;
+  height: 20px;
   border-radius: var(--radius-full);
   border: 2px solid #FFFFFF;
-  outline: 1px solid #D1D5DB;
+  outline: 1.5px solid #D1D5DB;
   cursor: pointer;
   transition: transform 0.15s ease, outline-color 0.15s ease;
   padding: 0;
 }
 .swatchDot:hover {
-  transform: scale(1.15);
+  transform: scale(1.18);
 }
 .swatchActive {
-  outline: 2px solid var(--primary);
-  transform: scale(1.15);
+  outline: 2.5px solid var(--primary);
+  transform: scale(1.18);
 }
 
 .selectedFinishName {
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
   color: var(--text-secondary);
 }
@@ -324,9 +324,9 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--text-muted);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .dimIcon {
@@ -339,7 +339,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   margin-top: auto;
 }
 
@@ -350,7 +350,7 @@
 }
 
 .offerPrice {
-  font-size: 18px;
+  font-size: clamp(20px, 1.5vw, 24px);
   font-weight: 800;
   color: var(--text-primary);
   font-family: var(--font-primary);
@@ -358,7 +358,7 @@
 }
 
 .mrpPrice {
-  font-size: 13px;
+  font-size: 14px;
   color: #9CA3AF;
   text-decoration: line-through;
 }
@@ -368,7 +368,7 @@
   font-weight: 600;
   color: #6B7280;
   background: #F3F4F6;
-  padding: 2px 6px;
+  padding: 3px 8px;
   border-radius: var(--radius-xs);
 }
 
@@ -377,13 +377,13 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
   color: #15803D;
   background: #F0FDF4;
-  padding: 5px 8px;
+  padding: 6px 10px;
   border-radius: var(--radius-sm);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .truckIcon {
@@ -394,32 +394,33 @@
 /* Actions */
 .actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .enquireBtn {
   flex: 1;
-  padding: 10px 0;
+  padding: 12px 0;
+  min-height: 44px;
   background: var(--primary);
   color: #FFFFFF;
   border: none;
   border-radius: var(--radius-sm);
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
   font-family: var(--font-primary);
   cursor: pointer;
   transition: all 0.15s ease;
-  box-shadow: 0 2px 6px rgba(222, 91, 23, 0.2);
+  box-shadow: 0 2px 8px rgba(222, 91, 23, 0.22);
 }
 .enquireBtn:hover {
   background: var(--primary-hover);
-  box-shadow: 0 4px 12px rgba(222, 91, 23, 0.3);
+  box-shadow: 0 6px 16px rgba(222, 91, 23, 0.32);
   transform: translateY(-1px);
 }
 
 .whatsappBtn {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-sm);
   background: #22C55E;
   color: #FFFFFF;
@@ -429,9 +430,36 @@
   flex-shrink: 0;
   text-decoration: none;
   transition: all 0.15s ease;
-  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.25);
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.28);
 }
 .whatsappBtn:hover {
   background: #16A34A;
   transform: translateY(-1px) scale(1.05);
+}
+
+/* ─── Responsiveness & Mobile Touch Optimizations ───────────────────────── */
+@media (max-width: 680px) {
+  .content {
+    padding: 18px 16px 16px;
+  }
+  .title {
+    font-size: 16px;
+  }
+  .metaStrip {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .quickViewBtn {
+    opacity: 0.95;
+    transform: translateY(0);
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (hover: none) {
+  .quickViewBtn {
+    opacity: 0.92;
+    transform: translateY(0);
+  }
 }

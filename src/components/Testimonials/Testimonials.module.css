@@ -236,3 +236,19 @@
     display: none;
   }
 }
+
+@media (max-width: 640px) {
+  .spotlightImageCol {
+    min-height: 280px;
+  }
+  .spotlightContentCol {
+    padding: 24px 18px;
+  }
+  .trustScoreBar {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+  .bigScore {
+    font-size: 26px;
+  }
+}

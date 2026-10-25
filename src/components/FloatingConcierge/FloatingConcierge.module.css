@@ -323,10 +323,18 @@
 
 @media (max-width: 480px) {
   .conciergeWrap {
-    bottom: 20px;
-    right: 20px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: 16px;
   }
   .popupBox {
-    width: 290px;
+    width: min(320px, calc(100vw - 32px));
+    right: 0;
+  }
+  .mainTrigger {
+    width: 52px;
+    height: 52px;
+  }
+  .speechBubble {
+    max-width: calc(100vw - 32px);
   }
 }

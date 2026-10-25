@@ -6,7 +6,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: clamp(16px, 1.8vw, 26px);
 }
 
 .card {
@@ -129,7 +129,7 @@
 
 .catName {
   font-family: var(--font-primary);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.3;
@@ -140,20 +140,20 @@
 }
 
 .priceTag {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--primary);
   white-space: nowrap;
 }
 
 .catSubtitle {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-muted);
   line-height: 1.4;
 }
 
 /* ─── Responsiveness ────────────────────────────────────────────────────── */
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
@@ -166,10 +166,16 @@
     gap: 14px;
   }
   .cardInfo {
-    padding: 12px;
+    padding: 13px 12px;
   }
   .catName {
-    font-size: 14px;
+    font-size: 14.5px;
+  }
+  .priceTag {
+    font-size: 12px;
+  }
+  .catSubtitle {
+    font-size: 12px;
   }
 }
 
@@ -177,5 +183,17 @@
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+  .cardInfo {
+    padding: 10px 8px;
+  }
+  .catName {
+    font-size: 13px;
+  }
+  .priceTag {
+    font-size: 11px;
+  }
+  .catSubtitle {
+    display: none;
   }
 }

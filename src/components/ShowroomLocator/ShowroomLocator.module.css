@@ -218,3 +218,31 @@
     min-height: 280px;
   }
 }
+
+@media (max-width: 640px) {
+  .storeCard {
+    border-radius: var(--radius-lg);
+  }
+  .cardLeft {
+    padding: 24px 18px;
+  }
+  .storeTitle {
+    font-size: 21px;
+  }
+  .storeTabs {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .storeTab {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  .actionRow {
+    flex-direction: column;
+    width: 100%;
+  }
+  .actionRow a, .actionRow button {
+    width: 100%;
+    justify-content: center;
+  }
+}

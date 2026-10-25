@@ -77,21 +77,21 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: clamp(24px, 2.5vw, 36px);
 }
 
 /* Loading */
 .loadingGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: clamp(24px, 2.5vw, 36px);
 }
 
 .skeleton {
   background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
-  height: 440px;
+  height: 480px;
   border-radius: var(--radius-md);
 }
 
@@ -420,37 +420,42 @@
 }
 
 /* ─── Responsiveness ────────────────────────────────────────────────────── */
-@media (max-width: 1080px) {
-  .grid {
+@media (max-width: 1280px) {
+  .grid, .loadingGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: clamp(20px, 2.2vw, 28px);
   }
+}
+
+@media (max-width: 992px) {
   .qvGrid {
     grid-template-columns: 1fr;
   }
   .qvImageCol {
     padding: 24px;
   }
+  .catalogBanner {
+    padding: 28px 24px;
+    gap: 24px;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
+  .grid, .loadingGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
   .catalogBanner {
-    padding: 24px 20px;
+    padding: 24px 16px;
     flex-direction: column;
   }
   .catalogActions {
     width: 100%;
   }
-}
-
-@media (max-width: 680px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
   .controlsBar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 12px;
   }
   .sampleStatusPill {
     width: 100%;

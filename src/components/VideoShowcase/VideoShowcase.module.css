@@ -34,11 +34,12 @@
 
 .carousel {
   display: flex;
-  gap: 16px;
+  gap: clamp(16px, 1.8vw, 24px);
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  padding: 12px 4px 24px;
+  -webkit-overflow-scrolling: touch;
+  padding: 12px 6px 28px;
   scrollbar-width: none; /* Firefox */
 }
 .carousel::-webkit-scrollbar {
@@ -47,13 +48,13 @@
 
 /* ─── Reel Card (Matches Screenshot Aspect & Layout) ───────────────────── */
 .reelCard {
-  flex: 0 0 260px;
+  flex: 0 0 clamp(280px, 20vw, 340px);
   scroll-snap-align: start;
   cursor: pointer;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   background: #111827;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
@@ -68,7 +69,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 9 / 16;
-  min-height: 460px;
+  min-height: clamp(500px, 35vw, 600px);
   overflow: hidden;
   background: #111827;
 }
@@ -275,11 +276,11 @@
 }
 
 .navBtnLeft {
-  left: -20px;
+  left: -12px;
 }
 
 .navBtnRight {
-  right: -20px;
+  right: -12px;
 }
 
 /* ─── Full-Screen Reel Modal ───────────────────────────────────────────── */
@@ -537,17 +538,26 @@
 @media (max-width: 1200px) {
   .navBtnLeft { left: 4px; }
   .navBtnRight { right: 4px; }
+  .reelCard {
+    flex: 0 0 clamp(250px, 26vw, 290px);
+  }
+  .videoWrap {
+    min-height: clamp(450px, 46vw, 520px);
+  }
 }
 
 @media (max-width: 768px) {
   .reelCard {
-    flex: 0 0 220px;
+    flex: 0 0 230px;
   }
   .videoWrap {
-    min-height: 390px;
+    min-height: 400px;
   }
   .sectionTitle {
     font-size: 26px;
+  }
+  .navBtn {
+    display: none;
   }
   .modalCard {
     grid-template-columns: 1fr;
@@ -559,5 +569,20 @@
   }
   .modalDrawer {
     padding: 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reelCard {
+    flex: 0 0 205px;
+  }
+  .videoWrap {
+    min-height: 365px;
+  }
+  .productTitle {
+    font-size: 12px;
+  }
+  .watermarkMain {
+    font-size: 12px;
   }
 }

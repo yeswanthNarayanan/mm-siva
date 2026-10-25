@@ -203,3 +203,33 @@
     align-items: flex-start;
   }
 }
+
+@media (max-width: 640px) {
+  .dealSection {
+    padding: 24px 0;
+  }
+  .dealTitle {
+    font-size: 19px;
+  }
+  .timeBox {
+    min-width: 46px;
+    padding: 6px 8px;
+  }
+  .timeVal {
+    font-size: 20px;
+  }
+  .rightCol {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .couponBox {
+    width: 100%;
+    text-align: center;
+  }
+  .claimBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

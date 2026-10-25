@@ -7,7 +7,7 @@
 
 .viewport {
   position: relative;
-  height: 580px;
+  height: clamp(560px, 62vh, 680px);
   min-height: 520px;
   display: flex;
   align-items: center;
@@ -99,7 +99,7 @@
 
 .heading {
   font-family: var(--font-display);
-  font-size: 46px;
+  font-size: clamp(34px, 3.8vw, 48px);
   font-weight: 800;
   line-height: 1.15;
   color: #FFFFFF;
@@ -116,11 +116,11 @@
 }
 
 .subHeading {
-  font-size: 16px;
+  font-size: clamp(14.5px, 1.2vw, 17px);
   line-height: 1.6;
   color: #E5E7EB;
   margin-bottom: 20px;
-  max-width: 580px;
+  max-width: 620px;
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
@@ -276,7 +276,7 @@
 
 .pillarTitle {
   font-family: var(--font-primary);
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.25;
@@ -284,13 +284,13 @@
 }
 
 .pillarDesc {
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--text-muted);
   line-height: 1.4;
 }
 
 /* ─── Responsiveness ────────────────────────────────────────────────────── */
-@media (max-width: 1150px) {
+@media (max-width: 1200px) {
   .pillarsInner {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
@@ -302,10 +302,11 @@
 
 @media (max-width: 768px) {
   .viewport {
-    height: 520px;
+    height: 500px;
+    min-height: 460px;
   }
   .heading {
-    font-size: 32px;
+    font-size: 28px;
   }
   .subHeading {
     font-size: 14px;
@@ -316,12 +317,29 @@
   .pillarsInner {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    padding: 16px 0;
   }
 }
 
 @media (max-width: 480px) {
+  .viewport {
+    height: 460px;
+    min-height: 420px;
+  }
+  .heading {
+    font-size: 25px;
+  }
+  .subHeading {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .pricePill {
+    font-size: 11.5px;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+  }
   .pillarsInner {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 }
