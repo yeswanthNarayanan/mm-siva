@@ -325,6 +325,8 @@ ul, ol {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-label {
@@ -335,6 +337,8 @@ ul, ol {
 
 .form-input {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 10px 14px;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-md);

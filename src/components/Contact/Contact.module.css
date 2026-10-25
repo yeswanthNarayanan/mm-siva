@@ -18,6 +18,9 @@
   border-radius: var(--radius-xl);
   padding: 36px 32px;
   box-shadow: var(--shadow-md);
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
 }
 
 .contactHead {
@@ -52,13 +55,16 @@
 .channelItem {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   background: #FFFFFF;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 14px 18px;
+  padding: 14px 16px;
   text-decoration: none;
   transition: all 0.2s ease;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
 }
 .channelItem:hover {
   transform: translateX(4px);
@@ -82,6 +88,7 @@
 
 .channelText {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -96,15 +103,19 @@
   font-size: 14.5px;
   font-weight: 700;
   color: var(--text-primary);
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .channelSub {
   font-size: 11px;
   color: #9CA3AF;
+  line-height: 1.35;
 }
 
 .channelArrow {
   color: #9CA3AF;
+  flex-shrink: 0;
   transition: transform 0.15s ease;
 }
 .channelItem:hover .channelArrow {
@@ -117,6 +128,7 @@
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 18px 20px;
+  box-sizing: border-box;
 }
 
 .addrHeader {
@@ -130,6 +142,7 @@
 
 .addrIcon {
   color: var(--primary);
+  flex-shrink: 0;
 }
 
 .addrText {
@@ -155,6 +168,9 @@
   border-radius: var(--radius-xl);
   padding: 40px 36px;
   box-shadow: var(--shadow-lg);
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
 }
 
 .formHeader {
@@ -180,11 +196,14 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .formRow {
   display: flex;
   gap: 16px;
+  width: 100%;
 }
 
 .formFooterDisclaimer {
@@ -222,11 +241,82 @@
 }
 
 @media (max-width: 960px) {
+  .section {
+    padding: 60px 0;
+  }
   .grid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
   }
   .formRow {
     flex-direction: column;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contactCard {
+    padding: 24px 16px;
+    border-radius: var(--radius-lg);
+  }
+  .formCard {
+    padding: 24px 16px;
+    border-radius: var(--radius-lg);
+  }
+  .contactTitle {
+    font-size: 21px;
+  }
+  .formTitle {
+    font-size: 22px;
+  }
+  .channelsList {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .channelItem {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+  .channelIcon {
+    width: 38px;
+    height: 38px;
+  }
+  .channelValue {
+    font-size: 13.5px;
+  }
+  .channelLabel {
+    font-size: 11px;
+  }
+  .channelSub {
+    font-size: 10.5px;
+  }
+  .addressBox {
+    padding: 14px 14px;
+  }
+  .addrText {
+    font-size: 12.5px;
+  }
+  .form {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 440px) {
+  .contactCard {
+    padding: 20px 12px;
+  }
+  .formCard {
+    padding: 20px 12px;
+  }
+  .channelItem {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .channelIcon {
+    width: 34px;
+    height: 34px;
+  }
+  .channelValue {
+    font-size: 13px;
   }
 }
