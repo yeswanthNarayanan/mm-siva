@@ -179,6 +179,7 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchFocused, setSearchFocused] = useState(false)
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null)
+  const [expandedMobileCat, setExpandedMobileCat] = useState<string | null>(null)
   const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const [wishlistCount] = useState(3)
   const searchRef = useRef<HTMLDivElement>(null)
@@ -395,7 +396,7 @@ export default function Navbar() {
               </div>
             </a>
 
-            <a href="#contact" className="btn btn-primary btn-sm" id="nav-quote-btn">
+            <a href="#contact" className={`btn btn-primary btn-sm ${styles.navQuoteBtn}`} id="nav-quote-btn">
               Get Quote
             </a>
 
@@ -405,7 +406,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle navigation menu"
             >
-              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
@@ -515,18 +516,84 @@ export default function Navbar() {
             </div>
 
             <div className={styles.mobileDrawerNav}>
-              <div className={styles.mobileSectionTitle}>Categories</div>
-              {CATEGORIES.map((cat) => (
-                <a 
-                  key={cat.id} 
-                  href={cat.href}
-                  className={`${styles.mobileNavLink} ${cat.highlight ? styles.mobileNavHighlight : ''}`}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <span>{cat.label}</span>
-                  {cat.badge && <span className={styles.mobileNavBadge}>{cat.badge}</span>}
-                </a>
-              ))}
+              <div className={styles.mobileSectionTitle}>Categories & Products</div>
+              {CATEGORIES.map((cat) => {
+                const hasSub = cat.subcategories && cat.subcategories.length > 0
+                const isExpanded = expandedMobileCat === cat.id
+
+                return (
+                  <div key={cat.id} className={styles.mobileCatItem}>
+                    {hasSub ? (
+                      <button
+                        type="button"
+                        className={`${styles.mobileNavLink} ${cat.highlight ? styles.mobileNavHighlight : ''} ${isExpanded ? styles.mobileNavActive : ''}`}
+                        onClick={() => setExpandedMobileCat(isExpanded ? null : cat.id)}
+                        aria-expanded={isExpanded}
+                      >
+                        <div className={styles.mobileNavLabelWrap}>
+                          <span>{cat.label}</span>
+                          {cat.badge && (
+                            <span className={`${styles.mobileNavBadge} ${cat.highlight ? styles.catBadgeSale : ''}`}>
+                              {cat.badge}
+                            </span>
+                          )}
+                        </div>
+                        <ChevronDown
+                          size={18}
+                          className={`${styles.mobileChevron} ${isExpanded ? styles.mobileChevronOpen : ''}`}
+                        />
+                      </button>
+                    ) : (
+                      <a
+                        href={cat.href}
+                        className={`${styles.mobileNavLink} ${cat.highlight ? styles.mobileNavHighlight : ''}`}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        <div className={styles.mobileNavLabelWrap}>
+                          <span>{cat.label}</span>
+                          {cat.badge && (
+                            <span className={`${styles.mobileNavBadge} ${cat.highlight ? styles.catBadgeSale : ''}`}>
+                              {cat.badge}
+                            </span>
+                          )}
+                        </div>
+                      </a>
+                    )}
+
+                    {/* Dropdown Products & Subcategories Accordion */}
+                    {hasSub && isExpanded && (
+                      <div className={styles.mobileSubNav}>
+                        <a
+                          href={cat.href}
+                          className={styles.mobileViewAllLink}
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          <span>Explore All {cat.label} Furniture</span>
+                          <ArrowRight size={14} />
+                        </a>
+
+                        {cat.subcategories.map((sub, sIdx) => (
+                          <div key={sIdx} className={styles.mobileSubSection}>
+                            <div className={styles.mobileSubTitle}>{sub.title}</div>
+                            <div className={styles.mobileProductList}>
+                              {sub.items.map((item, iIdx) => (
+                                <a
+                                  key={iIdx}
+                                  href="#products"
+                                  className={styles.mobileProductLink}
+                                  onClick={() => setMenuOpen(false)}
+                                >
+                                  <span>{item}</span>
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
 
               <hr className={styles.mobileDivider} />
               <div className={styles.mobileSectionTitle}>Explore MM Siva</div>

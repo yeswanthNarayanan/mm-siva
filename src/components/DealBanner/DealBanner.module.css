@@ -207,6 +207,11 @@
 @media (max-width: 640px) {
   .dealSection {
     padding: 24px 0;
+    overflow: hidden;
+  }
+  .leftCol {
+    min-width: unset;
+    width: 100%;
   }
   .dealTitle {
     font-size: 19px;

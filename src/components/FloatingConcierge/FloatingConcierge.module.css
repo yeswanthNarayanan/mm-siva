@@ -1,18 +1,18 @@
 .conciergeWrap {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
+  bottom: 24px;
+  right: 24px;
   z-index: 1500;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 12px;
+  gap: 10px;
 }
 
 /* Scroll To Top */
 .scrollTopBtn {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-full);
   background: #FFFFFF;
   border: 1px solid var(--border-light);
@@ -36,12 +36,12 @@
   background: #FFFFFF;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
-  padding: 12px 32px 12px 14px;
+  padding: 12px 34px 12px 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   gap: 10px;
-  max-width: 280px;
+  max-width: 290px;
   cursor: pointer;
   animation: bubbleSlide 0.3s ease;
   transition: transform 0.2s ease;
@@ -76,9 +76,11 @@
 }
 .bubbleText strong {
   color: var(--text-primary);
+  font-weight: 700;
 }
 .bubbleText span {
   color: var(--text-muted);
+  font-size: 11px;
 }
 
 .bubbleClose {
@@ -97,59 +99,92 @@
 
 /* Main Trigger Button */
 .mainTrigger {
-  width: 60px;
-  height: 60px;
-  border-radius: var(--radius-full);
-  background: #22C55E;
-  color: #FFFFFF;
-  border: none;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #DE5B17 0%, #C44D0F 100%);
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 18px 10px 12px;
+  border-radius: var(--radius-full);
   cursor: pointer;
-  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+  box-shadow: 0 8px 25px rgba(222, 91, 23, 0.38);
   position: relative;
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .mainTrigger:hover {
-  transform: scale(1.1);
-  background: #16A34A;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(222, 91, 23, 0.48);
 }
 
 .triggerPulse {
   position: absolute;
-  inset: -6px;
+  inset: -5px;
   border-radius: var(--radius-full);
-  border: 2px solid #22C55E;
-  animation: pulseGreen 2.2s infinite ease-out;
+  border: 2px solid var(--primary);
+  animation: pulseBrand 2.2s infinite ease-out;
   pointer-events: none;
 }
 
-@keyframes pulseGreen {
-  0% { transform: scale(0.9); opacity: 0.8; }
-  100% { transform: scale(1.4); opacity: 0; }
+@keyframes pulseBrand {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+
+.triggerIconWrap {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.triggerBot {
+  color: #FFFFFF;
+}
+
+.triggerSparkle {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  color: #FDE047;
+}
+
+.aiBadgePill {
+  font-family: var(--font-primary);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .onlineStatusRing {
   position: absolute;
   top: 2px;
   right: 2px;
-  width: 13px;
-  height: 13px;
+  width: 10px;
+  height: 10px;
   border-radius: var(--radius-full);
-  background: #FFFFFF;
-  border: 3px solid #22C55E;
+  background: #22C55E;
+  border: 2px solid #FFFFFF;
 }
 
-/* Popup Box */
+/* ─── Popup Box ─────────────────────────────────────────────────────────── */
 .popupBox {
-  width: 330px;
+  width: 370px;
   background: #FFFFFF;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
   overflow: hidden;
   animation: popupSlide 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  max-height: min(620px, calc(100vh - 100px));
 }
 
 @keyframes popupSlide {
@@ -160,22 +195,28 @@
 .popupHead {
   background: linear-gradient(135deg, #171E26 0%, #202A36 100%);
   color: #FFFFFF;
-  padding: 18px 20px;
+  padding: 16px 18px;
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .headAvatar {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(222, 91, 23, 0.25);
+  border: 1px solid rgba(222, 91, 23, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  color: #FB923C;
+}
+
+.botIcon {
+  color: #FED7AA;
 }
 
 .onlineDot {
@@ -195,15 +236,39 @@
 
 .headName {
   font-family: var(--font-primary);
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1.2;
 }
 
 .headStatus {
-  font-size: 11.5px;
+  font-size: 11px;
   color: #86EFAC;
+}
+
+.headActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.headActionBtn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D1D5DB;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.headActionBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
 }
 
 .popupClose {
@@ -217,11 +282,257 @@
   color: #FFFFFF;
 }
 
+/* ─── Mode Tabs ─────────────────────────────────────────────────────────── */
+.tabBar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #F3F4F6;
+  padding: 3px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.tabBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tabBtnActive {
+  background: #FFFFFF;
+  color: var(--primary);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── AI Chat Tab ───────────────────────────────────────────────────────── */
+.aiChatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  background: #FAF8F5;
+  overflow: hidden;
+}
+
+.messageFeed {
+  flex: 1;
+  padding: 14px 14px 8px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.msgRow {
+  display: flex;
+  gap: 8px;
+  max-width: 90%;
+}
+
+.msgRowUser {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.msgRowAi {
+  align-self: flex-start;
+}
+
+.msgAvatarAi {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.msgBubbleWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.msgBubble {
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.msgBubbleAi {
+  background: #FFFFFF;
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  border-top-left-radius: 2px;
+}
+
+.msgBubbleUser {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-top-right-radius: 2px;
+  box-shadow: 0 2px 6px rgba(222, 91, 23, 0.25);
+}
+
+.msgText {
+  white-space: pre-line;
+}
+
+.msgActionBtn {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #22C55E;
+  color: #FFFFFF;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.3);
+  transition: background 0.15s ease;
+}
+.msgActionBtn:hover {
+  background: #16A34A;
+}
+
+.msgTime {
+  font-size: 10px;
+  color: var(--text-muted);
+  padding: 0 4px;
+}
+.msgRowUser .msgTime {
+  text-align: right;
+}
+
+/* Typing Indicator */
+.typingBubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 14px;
+}
+
+.typingDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9CA3AF;
+  animation: typingBounce 1.4s infinite ease-in-out both;
+}
+.typingDot:nth-child(1) { animation-delay: -0.32s; }
+.typingDot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* Chips Scroll */
+.chipsScroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 12px;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-light);
+  scrollbar-width: none;
+}
+.chipsScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.chipBtn {
+  background: #F3ECE2;
+  border: 1px solid #E5DFD7;
+  color: var(--text-primary);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+.chipBtn:hover {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+}
+
+/* Input Bar */
+.inputBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-light);
+}
+
+.chatInput {
+  flex: 1;
+  border: 1px solid #D1D5DB;
+  border-radius: var(--radius-full);
+  padding: 8px 14px;
+  font-size: 13px;
+  outline: none;
+  background: #F9FAFB;
+  transition: border-color 0.15s;
+}
+.chatInput:focus {
+  border-color: var(--primary);
+  background: #FFFFFF;
+}
+
+.sendBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: #FFFFFF;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+.sendBtn:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+}
+.sendBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ─── Contact Tab Body ──────────────────────────────────────────────────── */
 .popupBody {
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  background: #FFFFFF;
 }
 
 .popupWelcome {
@@ -306,35 +617,53 @@
 .actionBtnVisit {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px;
+  gap: 12px;
+  padding: 12px 14px;
   background: var(--primary-light);
   border: 1px solid #FED7AA;
   border-radius: var(--radius-md);
-  color: var(--primary-dark);
-  font-size: 12.5px;
-  font-weight: 700;
+  color: var(--text-primary);
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: all 0.15s ease;
 }
 .actionBtnVisit:hover {
   background: #FDE8D7;
+  transform: translateX(2px);
 }
 
+.storeIconWrap {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ─── Responsiveness ────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
   .conciergeWrap {
     bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    right: 16px;
+    right: 14px;
   }
   .popupBox {
-    width: min(320px, calc(100vw - 32px));
+    width: min(340px, calc(100vw - 28px));
     right: 0;
+    max-height: min(540px, calc(100vh - 80px));
+  }
+  .aiChatContainer {
+    height: 340px;
   }
   .mainTrigger {
-    width: 52px;
-    height: 52px;
+    padding: 8px 14px 8px 10px;
+  }
+  .aiBadgePill {
+    font-size: 12.5px;
   }
   .speechBubble {
-    max-width: calc(100vw - 32px);
+    max-width: calc(100vw - 28px);
   }
 }

@@ -799,16 +799,112 @@
   margin-bottom: 6px;
 }
 
+/* ─── Mobile Accordion & Subcategories ─────────────────────────────────── */
+.mobileCatItem {
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.mobileNavLabelWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .mobileNavLink {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
-  font-size: 14.5px;
+  padding: 12px 0;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.mobileNavActive {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.mobileChevron {
+  color: var(--text-muted);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.mobileChevronOpen {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+.mobileSubNav {
+  background: #FAF8F5;
+  border-radius: var(--radius-md);
+  padding: 12px 14px 16px;
+  margin: 2px 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.2s ease;
+}
+
+.mobileViewAllLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--primary-light);
+  border: 1px solid #FED7AA;
+  border-radius: var(--radius-sm);
+  color: var(--primary-dark);
+  font-size: 12.5px;
+  font-weight: 700;
   text-decoration: none;
-  border-bottom: 1px solid #F3F4F6;
+}
+
+.mobileSubSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobileSubTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.mobileProductList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mobileProductLink {
+  display: inline-flex;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  padding: 5px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.mobileProductLink:hover, .mobileProductLink:active {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
 }
 
 .mobileNavHighlight {
@@ -880,5 +976,42 @@
   .searchContainer { display: none; }
   .whatsappAction { display: none; }
   .actionItem { display: none; }
-  .mobileHamburger { display: block; }
+  .actionCluster {
+    gap: 8px;
+  }
+  .mobileHamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #FAF8F5;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 580px) {
+  .navQuoteBtn {
+    display: none !important;
+  }
+  .mainHeader {
+    padding: 10px 0;
+  }
+  .logoBadge {
+    gap: 6px;
+  }
+  .logoWoodIcon {
+    font-size: 20px;
+  }
+  .logoMain {
+    font-size: 17px;
+  }
+  .logoTagline {
+    font-size: 7px;
+    letter-spacing: 0.06em;
+  }
 }

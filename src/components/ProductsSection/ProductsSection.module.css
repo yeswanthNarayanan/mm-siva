@@ -448,8 +448,14 @@
   .catalogBanner {
     padding: 24px 16px;
     flex-direction: column;
+    overflow: hidden;
+  }
+  .catalogLeft {
+    min-width: unset;
+    width: 100%;
   }
   .catalogActions {
+    min-width: unset;
     width: 100%;
   }
   .controlsBar {
